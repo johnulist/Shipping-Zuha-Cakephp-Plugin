@@ -17,7 +17,7 @@ class ShippingsController extends AppController {
 			$options_req_shipment1 =  defined('__ORDERS_SHIPPING_FEDEX_REQUESTED_SHIPMENT') ? unserialize(__ORDERS_SHIPPING_FEDEX_REQUESTED_SHIPMENT) : '' ;
 					
 			$options_req_shipment2 = array(
-					'ServiceType' => isset($this->data['OrderTransaction']['shippingType']) ? $this->data['OrderTransaction']['shippingType'] : '' ,
+					'ServiceType' => isset($this->request->data['OrderTransaction']['shippingType']) ? $this->request->data['OrderTransaction']['shippingType'] : '' ,
 					'TotalInsuredValue' => array('Ammount'=>100,'Currency'=>'USD') ,
 					'Shipper' => defined('__ORDERS_SHIPPING_FEDEX_REQUESTED_SHIPMENT_SHIPPER') ? unserialize(__ORDERS_SHIPPING_FEDEX_REQUESTED_SHIPMENT_SHIPPER) : '',
 					
@@ -25,24 +25,24 @@ class ShippingsController extends AppController {
 								'Address' => array(
 								'StreetLines' => array('Address Line 1'),
 								'City' => 'Richmond',
-								'StateOrProvinceCode' => isset($this->data['OrderShipment']['state']) ? $this->data['OrderShipment']['state'] : '' ,
-								'PostalCode' => isset($this->data['OrderShipment']['zip']) ? $this->data['OrderShipment']['zip'] : '' ,
-								'CountryCode' => isset($this->data['OrderShipment']['country']) ? $this->data['OrderShipment']['country'] : '' ,
+								'StateOrProvinceCode' => isset($this->request->data['OrderShipment']['state']) ? $this->request->data['OrderShipment']['state'] : '' ,
+								'PostalCode' => isset($this->request->data['OrderShipment']['zip']) ? $this->request->data['OrderShipment']['zip'] : '' ,
+								'CountryCode' => isset($this->request->data['OrderShipment']['country']) ? $this->request->data['OrderShipment']['country'] : '' ,
 								'Residential' => false)
 							),
 					'ShippingChargesPayment' => array('PaymentType' => 'SENDER'),
 					'RateRequestTypes' => 'ACCOUNT', 
 					'RateRequestTypes' => 'LIST', 
-					'PackageCount' => isset($this->data['OrderTransaction']['quantity']) ? $this->data['OrderTransaction']['quantity'] : '' ,
+					'PackageCount' => isset($this->request->data['OrderTransaction']['quantity']) ? $this->request->data['OrderTransaction']['quantity'] : '' ,
 					'PackageDetail' =>		'INDIVIDUAL_PACKAGES',
-					'RequestedPackageLineItems' => array('0' => array('Weight' => array('Value' => isset($this->data['OrderTransaction']['weight']) ? 
-							(empty($this->data['OrderTransaction']['weight']) ? __ORDERS_SHIPPING_FEDEX_DEFAULT_WEIGHT : $this->data['OrderTransaction']['weight']) : '' ,
+					'RequestedPackageLineItems' => array('0' => array('Weight' => array('Value' => isset($this->request->data['OrderTransaction']['weight']) ? 
+							(empty($this->request->data['OrderTransaction']['weight']) ? __ORDERS_SHIPPING_FEDEX_DEFAULT_WEIGHT : $this->request->data['OrderTransaction']['weight']) : '' ,
 																		'Units' => defined('__ORDERS_SHIPPING_FEDEX_WEIGHT_UNIT') ? __ORDERS_SHIPPING_FEDEX_WEIGHT_UNIT : ''
 																		),
 																		'Dimensions' => array(
-																			'Length' => isset($this->data['OrderTransaction']['length']) ? $this->data['OrderTransaction']['length'] : '' ,
-																			'Width' => isset($this->data['OrderTransaction']['width']) ? $this->data['OrderTransaction']['width'] : '' ,
-																			'Height' => isset($this->data['OrderTransaction']['height']) ? $this->data['OrderTransaction']['height'] : '' ,
+																			'Length' => isset($this->request->data['OrderTransaction']['length']) ? $this->request->data['OrderTransaction']['length'] : '' ,
+																			'Width' => isset($this->request->data['OrderTransaction']['width']) ? $this->request->data['OrderTransaction']['width'] : '' ,
+																			'Height' => isset($this->request->data['OrderTransaction']['height']) ? $this->request->data['OrderTransaction']['height'] : '' ,
 																			'Units' => defined('__ORDERS_SHIPPING_FEDEX_DIMENSIONS_UNIT') ? __ORDERS_SHIPPING_FEDEX_DIMENSIONS_UNIT : ''
 																		)),
 												 		)
@@ -73,7 +73,7 @@ class ShippingsController extends AppController {
 			$options_req_shipment1 =  defined('__ORDERS_SHIPPING_FEDEX_REQUESTED_SHIPMENT') ? unserialize(__ORDERS_SHIPPING_FEDEX_REQUESTED_SHIPMENT) : '' ;
 					
 			$options_req_shipment2 = array(
-					'ServiceType' => isset($this->data['OrderTransaction']['shippingType']) ? $this->data['OrderTransaction']['shippingType'] : '' ,
+					'ServiceType' => isset($this->request->data['OrderTransaction']['shippingType']) ? $this->request->data['OrderTransaction']['shippingType'] : '' ,
 					'TotalInsuredValue' => array('Ammount'=>100,'Currency'=>'USD') ,
 					'Shipper' => defined('__ORDERS_SHIPPING_FEDEX_REQUESTED_SHIPMENT_SHIPPER') ? unserialize(__ORDERS_SHIPPING_FEDEX_REQUESTED_SHIPMENT_SHIPPER) : '',
 					
@@ -81,24 +81,24 @@ class ShippingsController extends AppController {
 								'Address' => array(
 								'StreetLines' => array('Address Line 1'),
 								'City' => 'Richmond',
-								'StateOrProvinceCode' => isset($this->data['OrderShipment']['state']) ? $this->data['OrderShipment']['state'] : '' ,
-								'PostalCode' => isset($this->data['OrderShipment']['zip']) ? $this->data['OrderShipment']['zip'] : '' ,
-								'CountryCode' => isset($this->data['OrderShipment']['country']) ? $this->data['OrderShipment']['country'] : '' ,
+								'StateOrProvinceCode' => isset($this->request->data['OrderShipment']['state']) ? $this->request->data['OrderShipment']['state'] : '' ,
+								'PostalCode' => isset($this->request->data['OrderShipment']['zip']) ? $this->request->data['OrderShipment']['zip'] : '' ,
+								'CountryCode' => isset($this->request->data['OrderShipment']['country']) ? $this->request->data['OrderShipment']['country'] : '' ,
 								'Residential' => false)
 							),
 					'ShippingChargesPayment' => array('PaymentType' => 'SENDER'),
 					'RateRequestTypes' => 'ACCOUNT', 
 					'RateRequestTypes' => 'LIST', 
-					'PackageCount' => isset($this->data['OrderTransaction']['quantity']) ? $this->data['OrderTransaction']['quantity'] : '' ,
+					'PackageCount' => isset($this->request->data['OrderTransaction']['quantity']) ? $this->request->data['OrderTransaction']['quantity'] : '' ,
 					'PackageDetail' =>		'INDIVIDUAL_PACKAGES',
-					'RequestedPackageLineItems' => array('0' => array('Weight' => array('Value' => isset($this->data['OrderTransaction']['weight']) ? 
-							(empty($this->data['OrderTransaction']['weight']) ? __ORDERS_SHIPPING_FEDEX_DEFAULT_WEIGHT : $this->data['OrderTransaction']['weight']) : '' ,
+					'RequestedPackageLineItems' => array('0' => array('Weight' => array('Value' => isset($this->request->data['OrderTransaction']['weight']) ? 
+							(empty($this->request->data['OrderTransaction']['weight']) ? __ORDERS_SHIPPING_FEDEX_DEFAULT_WEIGHT : $this->request->data['OrderTransaction']['weight']) : '' ,
 																		'Units' => defined('__ORDERS_SHIPPING_FEDEX_WEIGHT_UNIT') ? __ORDERS_SHIPPING_FEDEX_WEIGHT_UNIT : ''
 																		),
 																		'Dimensions' => array(
-																			'Length' => isset($this->data['OrderTransaction']['length']) ? $this->data['OrderTransaction']['length'] : '' ,
-																			'Width' => isset($this->data['OrderTransaction']['width']) ? $this->data['OrderTransaction']['width'] : '' ,
-																			'Height' => isset($this->data['OrderTransaction']['height']) ? $this->data['OrderTransaction']['height'] : '' ,
+																			'Length' => isset($this->request->data['OrderTransaction']['length']) ? $this->request->data['OrderTransaction']['length'] : '' ,
+																			'Width' => isset($this->request->data['OrderTransaction']['width']) ? $this->request->data['OrderTransaction']['width'] : '' ,
+																			'Height' => isset($this->request->data['OrderTransaction']['height']) ? $this->request->data['OrderTransaction']['height'] : '' ,
 																			'Units' => defined('__ORDERS_SHIPPING_FEDEX_DIMENSIONS_UNIT') ? __ORDERS_SHIPPING_FEDEX_DIMENSIONS_UNIT : ''
 																		)),
 												 		)
