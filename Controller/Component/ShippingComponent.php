@@ -3,8 +3,7 @@
 // Copyright 2009, FedEx Corporation. All rights reserved.
 // Version 9.0.0
 
-class ShippingComponent extends Object
-{
+class ShippingComponent extends Object {
 
 	var $request = array(
 			'WebAuthenticationDetail' => array('UserCredential' => array('Key' => 'BWw8o4cRu1z7NZZU', 'Password' => 'CjV3icwSEDDpgFiTFweIkaEAc')), 
