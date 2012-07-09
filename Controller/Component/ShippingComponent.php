@@ -68,7 +68,7 @@ class ShippingComponent extends Object {
 			}
 			else
 			{
-				$freight['Message'] = $response -> Notifications -> Message;
+				$freight['Message'] = $response->Notifications->Message;
 			} 
 			
 			$this->writeToLog($client);	// Write to log file   
